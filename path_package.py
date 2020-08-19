@@ -11,6 +11,7 @@ path_check
     |     |______subcheck1
     |     |______subcheck2
     |__check2
+    |     |______subcheck3
     |__check3
 '''
 
