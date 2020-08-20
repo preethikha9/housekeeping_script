@@ -15,7 +15,7 @@ path_check
     |__check3
 '''
 
-''' Output:
+''' Output1:
 ('./path_check/check1/subcheck1', [], [])
 ('./path_check/check1/subcheck2', [], [])
 ('./path_check/check1', ['subcheck1', 'subcheck2'], [])
@@ -23,3 +23,26 @@ path_check
 ('./path_check/check2', ['subcheck3'], [])
 ('./path_check/check3', [], [])
 ('./path_check', ['check1', 'check2', 'check3'], []) '''
+
+
+for root,dirs,files in os.walk("./path_check", topdown=False):
+   print(root)
+   for names in dirs:
+       print(names)
+
+
+''' Output2:
+./path_check/check1/subcheck1
+./path_check/check1/subcheck2
+./path_check/check1
+subcheck1
+subcheck2
+./path_check/check2/subcheck3
+./path_check/check2
+subcheck3
+./path_check/check3
+./path_check
+check1
+check2
+check3
+'''
