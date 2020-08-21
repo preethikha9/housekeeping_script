@@ -23,11 +23,11 @@ def cleanup(path):
     Removes files from the passed in path that are older than or equal 
     to the number_of_days
     """
-    time_in_secs = time.time() - ( 60 * 60)                             # (current time - the file alive duration) gives the time when the function got created.
+    time_in_secs = time.time() - (60)                                   # (current time - the file alive duration) gives the time when the function got created.
     for root, dirs, files in os.walk(path, topdown=False):              # traverse from the inner most to the root - deleted the file which was creted x days ago and checks the root directory if it is empty deletes it . so it goes from bottom to top. Thats why topdown is set false. 
         for file_ in files:
-            full_path = os.path.join(root, file_)
-            stat = os.stat(full_path)
+            full_path = os.path.join(root, file_)                       # to delete file enter the path from root
+            stat = os.stat(full_path)                                   # os.stat has the properties of a file . for more info check 
             
             if stat.st_mtime <= time_in_secs:
                 remove(full_path)
